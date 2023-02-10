@@ -39,3 +39,16 @@
     outline: none;
     padding: 10px;
 }
+
+.fab {
+    display: flex;
+    justify-content: center;
+    height: 80px;
+    border-radius: 100%;
+    bottom: 25px;
+    font-size: 25px;
+    padding: 25px;
+    position: fixed;
+    right: 25px;
+
+}

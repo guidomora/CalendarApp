@@ -33,3 +33,18 @@ Cargando un evento en el Modal:
 4) la importamos en el CalendarPage y la llamamos en la funcion onSelect
 5) en el modal llamamos a activeEvent del useCalendarStore 
 6) ponemos un useEffect que cambia siempre que se modifique el activeEvent 
+
+-----------------------------------------------------
+Preparando la creacion de un nuevo evento:
+
+1) creamos un componente FabAddNew (fab = floating action button)
+2) en ese componente creamos el boton y lo ponemos en CalendarPage
+3) en el componente del boton importamos openDateModal y lo ponemos en una funcion
+4) tambien importamos setActiveEvent del useCalendarStore, lo ponemos en la funcion y le pasamos un evento
+
+-----------------------------------------------------
+Anadir nuevo evento:
+
+1) en el calendarSlice creamos una funcion nueva onAddNewEvent
+2) en el useCalendarStore creamos la funcion startSavingEvent en la cual despachamos onAddNewEvent
+3) en CalendarPage importamos startSavingEvent y la ponemos en el submit y agregamos closeDateModal

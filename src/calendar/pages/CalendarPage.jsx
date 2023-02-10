@@ -9,6 +9,7 @@ import { useState } from "react";
 import CalendarModal from "../components/CalendarModal";
 import { useUiStore } from "../../hooks/useUiStore";
 import useCalendarStore from "../../hooks/useCalendarStore";
+import FabAddNew from "../components/FabAddNEw";
 
 const locales = {
   es: esES,
@@ -84,6 +85,7 @@ const CalendarPage = () => {
         onView = {onViewChanged}
       />
       <CalendarModal />
+      <FabAddNew />
     </>
   );
 };
