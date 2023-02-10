@@ -1,0 +1,35 @@
+1) npm install react-redux
+2) npm install @reduxjs/toolkit
+3) creamos el store
+4) el archivo uiSlice y lo ponemos en el store
+5) ponemos el provider del store en un lugar alto de la app para poder consumirlo = CalendarApp
+
+-----------------------------------------------------
+Mostrar y ocultar el omdal en base al Store:
+
+1) creamos la carpeta hooks
+2) creamos el archivo useUiStore.js
+3) creamos la funcion openDateModal
+4) en el CalendarPage importamos el useUiStore y lo ponemos en la funcnion de doble click
+5) en CalendarModal importamos isDateModalOpen del useUiStore y lo ponemos en isOpen del Modal
+6) en useUiStore creamos la funcion closeDateModal que trae onCloseDateModal del store
+7) en CalendarModal importamos closeDateModal y la ponemos en la funcion onCloseModal
+8) el modal abre al hacer doble click y cierra al hacer click afuera
+
+-----------------------------------------------------
+CalendarSlice:
+
+1) creamos el archivo calendarSlice.js 
+2) en el store lo importamos como reducer
+3) creamos un custom hook, useCalendarStore, en el que llamamos a los eventos
+4) Lo llamamos en el CalendarPage y desestruturamos los eventos
+
+-----------------------------------------------------
+Cargando un evento en el Modal:
+
+1) le agregamos un id a los eventos en el calendarSlice
+2) creamos una funcion de onSetActiveEvent
+3) despachamos esa accion en setActiveEvent en el useCalendarStore
+4) la importamos en el CalendarPage y la llamamos en la funcion onSelect
+5) en el modal llamamos a activeEvent del useCalendarStore 
+6) ponemos un useEffect que cambia siempre que se modifique el activeEvent 

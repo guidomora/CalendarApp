@@ -1,0 +1,22 @@
+1) creacion de rutas en AppRouter
+2) creamos el LoginPage
+3) creamos el NavBar y lo importamos en el CalendarPage
+4) npm i react-big-calendar
+5) npm install date-fns
+6) probamos un poco el Calendar en la LoginPage
+7) creamos el componente CalendarEventBox para personalizar el cuadrito del evento
+8) Escuchamos eventos del calendario
+    - Modificamos la defaultView: con el useState lo guardamos en el localStorage y le decimos
+    que si no hay un lastView lo ponga en semana.
+    - Con el onViewChanged que nos dice en que view estamos lo hacemos guardar en localStorage
+    y tambien que setee el state aunque no es necesario pq ya se guarda en el starage
+    - Todo para que cuando recarguemos no nos mande al mes que es la view por defecto que viene
+    con el calendario
+9) instalamos un modal (como una ventanita emergente) npm i react-modal
+10) lo editamos 
+11) lo ponemos en el CalendarPage
+12) le agregamos un poco de css y una funcionalidad pequena que despues va a ser modificada
+13) creamos mas jsx en el Modal 
+14) instalamos npm install react-datepicker --save
+15) le dimos funcionalidad, lo ponemos en espanol y le agregamos las validaciones
+16) instalamos npm install sweetalert2
