@@ -33,8 +33,27 @@ export const calendarSlice = createSlice({
       // Se limpia el activeEvent para poder crear otra nota
       state.activeEvent = null
     },
+    onUpdateEvent: (state, {payload}) => {
+      // Lo que regresa el map va a ser el nueva valor de nuestro state.events
+      state.events = state.events.map( event => {
+        if (event._id === payload._id) {
+          return payload
+        }
+        
+        return event
+      })
+    },
+    onDeleteEvent: (state) => {
+      if (state.activeEvent) {
+        // Regresa todos los eventos cuyo id sea diferente al de la nota activa
+      state.events = state.events.filter(event => event._id !== state.activeEvent._id)
+      // para que ya no tengam,os ninguna nota activa
+      state.activeEvent = null
+      }
+      
+    }
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { onSetActiveEvent, onAddNewEvent } = calendarSlice.actions;
+export const { onSetActiveEvent, onAddNewEvent, onUpdateEvent, onDeleteEvent } = calendarSlice.actions;

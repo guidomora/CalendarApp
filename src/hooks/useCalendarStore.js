@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { onAddNewEvent, onSetActiveEvent } from "../store/calendar/calendarSlice";
+import { onAddNewEvent, onDeleteEvent, onSetActiveEvent, onUpdateEvent } from "../store/calendar/calendarSlice";
 
 const useCalendarStore = () => {
   const dispatch = useDispatch()
@@ -14,17 +14,25 @@ const useCalendarStore = () => {
   const startSavingEvent = async (calendarEvent) => {
     if (calendarEvent._id) {
       // actualizando
+      dispatch(onUpdateEvent({...calendarEvent}))
     } else {
       // creando
       dispatch(onAddNewEvent({...calendarEvent, _id: new Date().getTime()}))
     }
   }
 
+  const startDeletingEvent = () => {
+    dispatch(onDeleteEvent())
+  }
+
   return {
     events,
     activeEvent,
+    // Para determinar si tengo una nota activa o no
+    hasEventSelected: !!activeEvent,
     setActiveEvent,
     startSavingEvent,
+    startDeletingEvent,
   };
 };
 

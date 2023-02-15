@@ -48,3 +48,28 @@ Anadir nuevo evento:
 1) en el calendarSlice creamos una funcion nueva onAddNewEvent
 2) en el useCalendarStore creamos la funcion startSavingEvent en la cual despachamos onAddNewEvent
 3) en CalendarPage importamos startSavingEvent y la ponemos en el submit y agregamos closeDateModal
+
+-----------------------------------------------------
+
+Editar el evento activo:
+
+1) Creamos la funcion onUpdateEvent en calendarSlice
+2) la cual mapea el id de los eventos
+3) despachamos la funcion en startSavingEvent del useCalendarStore
+
+-----------------------------------------------------
+
+Eliminar evento:
+
+1) hacemos una copia del FabAddNew y le ponemos de nombre FabDelete
+2) Creamos la funcion onDeleteEvent en calendarSlice
+3) despachamos la funcion en deleteEvent del useCalendarStore 
+4) llamamos a deleteEvent en FabDelete y la agregamos al onClick
+5) En el store retornamos una property para sabe si hay un evento activo
+6) Agregamos la funcionalidad para que el display sea "none" si no le hacemos click al evento
+
+-----------------------------------------------------
+
+serializableCheck:
+
+1) creamos un middleware en el store para que no serialice las fechas
