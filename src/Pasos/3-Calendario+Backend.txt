@@ -1,0 +1,89 @@
+Creando variables de entorno:
+
+1) helpers > getEnvVariables.js
+2) dentro de este archivo creamos la variable de entorno para testing
+3) creamos el archivo .env en la carpeta raiz
+4) dentro creamos la variable de entorno y le agregamos el endpoint donde se van a hacer
+    todas las peticiones al backend
+5) esto generalmente no se sube al repo asi que duplicamos el archivo, a la copia le
+    cambiamos el nombre por .env.template y en el git ignore agregamos .env
+6) En el archivo README ponemos instrucciones
+
+-----------------------------------------------------------
+
+AuthSlice:
+
+1) store > creamos auth > authSlice.js
+2) creamos el slice y dentro los reducers de checking y login
+3) lo llamamos en el store
+
+-----------------------------------------------------------
+
+Login y registro (useForm)
+
+1) hooks > useForm.js lo copiamos de github
+2) conectamos el useForm con el los forms de LoginPage
+-----------------------------------------------------------
+
+Configurar Cliente para peticiones HTTP - Axios
+
+1) npm install axios
+2) api > calendaApi.js
+3) creamos una constante a la que le vamos a pasar el url para las peticiones
+    y lo ponemos en axios 
+
+-----------------------------------------------------------
+
+Realizar login de usuario:
+
+No estariamos usando thunks 
+
+1) hooks > creamos useAuthStore.js tiene como obj realizar cualquier interaccion con
+    la parte de auth en nuestro store
+2) traemos las propiedades del state con el useSelector y creamos la funcion startLogin
+3) llamamos el hook en el LoginPage y en la funcion del submit llamamos al metodo startLogin
+
+-----------------------------------------------------------
+Despachar acciones respectivas:
+
+1) en useAuthStore despachamos el onChecking
+2) dentro del try catch desestructuramos la data delo que antes era la respuesta
+3) guardamos en el localStorage el token  (de 2 formas, con 1 esta bien igual)
+4) despachamos el onLogin y le pasamos el name y el uid
+5) en el slice creamos un reducer para el logout
+6) lo despachamos en el useAuthStore
+
+-----------------------------------------------------------
+Mostrar el error de atenticacion:
+
+1) en LoginPage traemos del useAuthStore el errorMessage
+2) creamos un useEffect donde ponemos un condicional para que se ejecte sweet alert si el error
+    es diferente a undefined
+
+-----------------------------------------------------------
+Creacion de nuevo usuario: 
+
+1) en LoginPage creamos un condicional para que si la registerPassword es diferente a la registerPassword2
+    arroje un cartel de error
+2) en useAuthStore creamos una funcion casi igual a startLogin, solo que le agregamos el name,
+    modificamos el error y cambiamos laruta por "auth/new"
+3) en LoginPage en la funcion de registerSubmit agregamos la funcion creada anteriormente y 
+    con sus respectivas propiedades
+
+-----------------------------------------------------------
+Mantener el estado de la autenticacion:
+
+1)
+2)
+3)
+4)
+5)
+
+-----------------------------------------------------------
+Cambiar la URL despues de una autenticacion:
+
+1)
+2)
+3)
+4)
+5)
