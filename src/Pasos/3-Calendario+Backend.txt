@@ -73,17 +73,22 @@ Creacion de nuevo usuario:
 -----------------------------------------------------------
 Mantener el estado de la autenticacion:
 
-1)
-2)
-3)
-4)
-5)
+1) creamos un interceptor en calendaApi
+2) en useAuthStore creamos la funcion checkAuthToken
+3) en el AppRouter llamamos useAuthStore( status y checkAuthToken)
+4) aplicamos checkAuthToken en un useEffect y creamos un condicional para que muestre la carga
+
 
 -----------------------------------------------------------
 Cambiar la URL despues de una autenticacion:
 
-1)
+mirar clase 416 porque era medio quilombo explicar
+
+-----------------------------------------------------------
+
+Logout y nombre de usuario:
+
+1) en el useAuthStore creamo la funcion de startLogout
 2)
 3)
 4)
-5)
