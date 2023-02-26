@@ -1,0 +1,42 @@
+Creando un nuevo evento en el calendario:
+
+1) en el useCalendarStore dentro de la funcnion startSavingEvent creamos la constante que se va
+    a encargar de la peticion post
+2) al dispatch de onAddNewEvent le agregamos como id el id que se genero en la funcion de 
+    arriba
+3) traemos el user que esta registrado con un useSelector del auth y tambien se lo agregamos
+    al dispatch 
+
+---------------------------------------------------
+
+Mostrar eventos de la base de datos:
+
+1) en useCalendarStore creamos una funcion > startLoadingEvents  
+2) esta tendra un try catch, desestructuramos data de calendarApi y el tipo de peticion
+  es get(). el el catch hacemos un console.log del error
+3) llamamos la funcion en el CalendarPage con el useCalendarStore
+4) la aplicamos en un useEffect
+5) creamos un helper eventsToDateEvents para cambiar el formato de las fechas, que viene en string 
+6) llamamos a ese helper en startLoadingEvents
+
+---------------------------------------------------
+
+Cargar los eventos al store:
+
+Tenemos que crear una accion para poder ver los eventos de la base de datos
+
+1) en calendarSlice creamos una funcion para que cargue los eventos
+2) en useCalendarStore despachamos esta funcion dentro de startLoadingEvents y le pasamos
+    los eventos que ya fueron parseados a el formato de fecha
+
+---------------------------------------------------
+
+Actualizar un evento:
+
+1) en useCalendarStore dentro de startSavingEvent al dispatch de onAddNewEvent, le agregamos el user
+2) creamos la peticion de tipo put, hay que pasarle el id del evento y el evento en el body
+3) creamos un try catch y movemos todo dentro del try y en el catch mostramos el error 
+    y agregamos un sweetAlert
+
+---------------------------------------------------
+Cambiar el color de los eventos segun usuario:

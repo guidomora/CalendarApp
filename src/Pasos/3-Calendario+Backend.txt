@@ -89,6 +89,6 @@ mirar clase 416 porque era medio quilombo explicar
 Logout y nombre de usuario:
 
 1) en el useAuthStore creamo la funcion de startLogout
-2)
-3)
-4)
+2) en el NavBar llamamos el useAuthStore, traemos el user y startLogout
+3) ponemos en nombre en una etiqueta
+4) y en el boton de salir le agregamos la funcion startLogout

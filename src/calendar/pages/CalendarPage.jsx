@@ -2,15 +2,16 @@ import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import esES from "date-fns/locale/es";
 import NavBar from "../components/NavBar";
-import { addHours, format, parse, startOfWeek, getDay } from "date-fns";
+import { format, parse, startOfWeek, getDay } from "date-fns";
 import { getMesagesES } from "../../helpers/getMesages";
 import CalendarEventBox from "../components/CalendarEventBox";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CalendarModal from "../components/CalendarModal";
 import { useUiStore } from "../../hooks/useUiStore";
 import useCalendarStore from "../../hooks/useCalendarStore";
 import FabAddNew from "../components/FabAddNEw";
 import FabDelete from "../components/FabDelete";
+import { useAuthStore } from "../../hooks/useAuthStore";
 
 const locales = {
   es: esES,
@@ -26,18 +27,24 @@ const localizer = dateFnsLocalizer({
 
 
 const CalendarPage = () => {
+  const {user} = useAuthStore()
 
+ 
   // Para poder abrir el Modal
   const {openDateModal} = useUiStore()
 
-  const {events, setActiveEvent} = useCalendarStore()
+  const {events, setActiveEvent, startLoadingEvents} = useCalendarStore()
 
   // Si no hay ningun valor se manda week por defecto
   const [lastView, setLastView] = useState(localStorage.getItem("lastView") || "week")
 
   const eventStyleGetter = (event, start, end, isSelected) => {
+
+    // detecta si es un evento mio y responde como un booleano
+    const isMyEvent = (user.uid === event.user._id) || (user.uid === event.user.uid)
+
     const style = {
-      backGroundColor: "#347CF7",
+      backGroundColor: isMyEvent ? "#347CF7" : "#465660",
       borderRadius: "0px",
       opacity: 0.8,
       color: "white"
@@ -62,6 +69,10 @@ const CalendarPage = () => {
     setLastView(event)
   }
 
+  useEffect(() => {
+    startLoadingEvents()
+  }, [])
+  
   
 
   return (

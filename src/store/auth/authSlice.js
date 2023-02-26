@@ -5,6 +5,7 @@ export const authSlice = createSlice({
   initialState: {
     // El status de la app al iniciar
     status: "checking", // "authenticated", "not-authenticated"
+    user:{},
     errorMessage: undefined,
   },
   reducers: {
@@ -15,7 +16,7 @@ export const authSlice = createSlice({
     },
     onLogin: (state, { payload }) => {
       state.status = "authenticated";
-      state.user = { payload };
+      state.user =  payload;
       state.errorMessage = undefined;
     },
     onLogout: (state, { payload }) => {
