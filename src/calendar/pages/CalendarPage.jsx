@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import CalendarModal from "../components/CalendarModal";
 import { useUiStore } from "../../hooks/useUiStore";
 import useCalendarStore from "../../hooks/useCalendarStore";
-import FabAddNew from "../components/FabAddNEw";
+import FabAddNew from "../components/FabAddNew";
 import FabDelete from "../components/FabDelete";
 import { useAuthStore } from "../../hooks/useAuthStore";
 
