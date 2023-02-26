@@ -40,3 +40,20 @@ Actualizar un evento:
 
 ---------------------------------------------------
 Cambiar el color de los eventos segun usuario:
+
+
+
+---------------------------------------------------
+Eliminar evento:
+
+1) muy similar a la de Actualizar. en useCalendarStore en la funcion startDeletingEvent
+2) hacemos un try catch, creamo la peticion delete y le pasamos el id
+3) despachamos onDeleteEvent y en el catch agregamos el error con un sweetAlert
+---------------------------------------------------
+
+Limpiar el calendario cuando hacemo el logout:
+
+1) creamos un reducer en el calendarSlice > onLogoutCalendar
+2) este reducer practicamente va a tener el initial state
+3) en useAuthStore en la funcion de startLogout agregamos el dispatch de onLogoutCalendar y listo
+

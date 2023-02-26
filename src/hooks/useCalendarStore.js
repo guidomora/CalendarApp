@@ -39,8 +39,15 @@ const useCalendarStore = () => {
       Swal.fire("Error al guardar", error.response.data.msg, "error");
     }
   };
-  const startDeletingEvent = () => {
-    dispatch(onDeleteEvent());
+  const startDeletingEvent = async () => {
+    try {
+      await calendarApi.delete(`/events/${activeEvent.id}`);
+      dispatch(onDeleteEvent());
+    } catch (error) {
+      console.log(error);
+      Swal.fire("Error al eliminar", error.response.data.msg, "error");
+    }
+    
   };
 
   const startLoadingEvents = async () => {
@@ -48,7 +55,6 @@ const useCalendarStore = () => {
       const { data } = await calendarApi.get("/events");
       const events = eventsToDateEvents(data.eventos);
       dispatch(onLoadEvents(events));
-      console.log(events);
     } catch (error) {
       console.log("Error cargando eventos");
       console.log(error);
