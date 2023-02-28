@@ -1,7 +1,7 @@
-export const getEnvVariables = () => {
+ const getEnvVariables = () => {
   import.meta.env;
 
-  return {
-    ...import.meta.env,
-  };
+  return { ...envVariable }
 };
+
+export default getEnvVariables
